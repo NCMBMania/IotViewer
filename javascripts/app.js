@@ -6,7 +6,7 @@ $(function() {
       sensors: [],
       data: [],
       visible: [],
-      tab: null
+      tab: 'temperature'
     },
     created: function(){
       let me = this;
@@ -36,16 +36,6 @@ $(function() {
         let id = e ? e.target.hash.replace('#', '') : this.tab;
         this.tab = id;
         let graph_data = [];
-        /*
-        let minDate = new Date;
-        for (let i = 0; i < this.data.length; i++) {
-          let oldDate = new Date(this.data[i].measureDate.split(',')[0]);
-          if (minDate > oldDate) {
-            minDate = oldDate;
-          }
-        }
-        */
-        console.log(this.data)
         for (let i = 0; i < this.data.length; i++) {
           if (this.visible.indexOf(this.data[i].sensorId) < 0) {
             continue;
@@ -59,7 +49,6 @@ $(function() {
           }
           graph_data.push(line_data);
         }
-        console.log(graph_data)
         let graph = Flotr.draw(document.getElementById('graph'), graph_data, {
           grid: {
             minorVerticalLines: true
