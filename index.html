@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>IoT管理</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+
+    <link rel="stylesheet" href="vendor/components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/components/flotr2/examples/examples.css">
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <script>
+    var application_key = 'YOUR_APPLICATION_KEY';
+    var client_key = 'YOUR_CLIENT_KEY';
+  </script>
+<body>
+  <div id="app">
+    <table class="table">
+      <thead>
+        <td></td>
+        <td>センサー</td>
+      </thead>
+      <tbody>
+        <tr v-for="sensor in sensors">
+          <td>
+            <input type="checkbox" v-model="visible" v-bind:value="sensor.sensorId" @click="change_visible(sensor)" />
+          </td>
+          <td>{{sensor.label}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" id="graph_tab" @click="display_graph">
+        <li role="presentation" class="active">
+          <a href="#temperature" aria-controls="temperature" role="tab" data-toggle="tab">温度</a>
+        </li>
+        <li role="presentation">
+          <a href="#humidity" aria-controls="humidity" role="tab" data-toggle="tab">湿度</a>
+        </li>
+        <li role="presentation">
+          <a href="#noise" aria-controls="noise" role="tab" data-toggle="tab">ノイズ</a>
+        </li>
+        <li role="presentation">
+          <a href="#airPressure" aria-controls="airPressure" role="tab" data-toggle="tab">気圧</a>
+        </li>
+        <li role="presentation">
+          <a href="#uv" aria-controls="uv" role="tab" data-toggle="tab">紫外線</a>
+        </li>
+        <li role="presentation">
+          <a href="#heatStroke" aria-controls="heatStroke" role="tab" data-toggle="tab">熱射病</a>
+        </li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div id="graph" style="width:500px;height:400px">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="vendor/components/jquery/dist/jquery.min.js"></script>
+  <script src="vendor/components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="vendor/components/flotr2/flotr2.min.js"></script>
+  <script src="vendor/components/ncmb/ncmb.min.js"></script>
+  <script src="vendor/components/vue/dist/vue.min.js"></script>
+  
+  <script src="javascripts/app.js"></script>
+</body>
+</html>

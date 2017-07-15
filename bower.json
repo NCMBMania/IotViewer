@@ -1,0 +1,23 @@
+{
+  "name": "iot_graph",
+  "authors": [
+    "Atsushi Nakatsugawa <atsushi@moongift.jp>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "flotr2": "*",
+    "ncmb": "^2.1.5",
+    "vue": "^2.4.1"
+  }
+}
